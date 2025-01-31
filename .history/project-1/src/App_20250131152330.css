@@ -13,15 +13,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  border: 1px solid gray;
   padding: 10px;
   margin: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease-in-out;
-}
-
-.post:hover{
-  transform: scale(1.05);
-  cursor: pointer;
 }
 
 .post img{
