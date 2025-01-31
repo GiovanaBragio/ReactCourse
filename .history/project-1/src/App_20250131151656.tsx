@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       {posts.map(post => {
         return (
-          <div className="post" key={post.id}>
+          <div key={post.id}>
             <img src={post.cover} alt={post.title} />
             <h1>{post.title}</h1>
             <p>{post.body}</p>

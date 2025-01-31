@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import logo from './logo.svg';
 import './App.css';
 
 type Post = {
@@ -15,16 +16,20 @@ function App() {
   }, []);
 
   const loadPosts = async () => {
-    const responsePost = await fetch('https://jsonplaceholder.typicode.com/posts').then(response => response.json());
-    const responsePhotos = await fetch('https://dummyjson.com/image/150');
+    const responsePost = fetch('https://jsonplaceholder.typicode.com/posts');
+    const responsePhotos = fetch('https://jsonplaceholder.typicode.com/photos');
 
+    const [posts, photos] = await Promise.all([
+      responsePost, responsePhotos
+    ]);
 
-    console.log(responsePhotos);
+    const postsJson = await posts.json();
+    const photosJson = await photos.json();
 
-    const postsWithPhotos = responsePost.map((post: Post, index: number) => {
+    const postsWithPhotos = postsJson.map((post: Post, index: number) => {
       return {
         ...post,
-        cover: responsePhotos.url
+        cover: photosJson[index].url
       }
     })
     setPosts(postsWithPhotos);
@@ -34,7 +39,7 @@ function App() {
     <div className="App">
       {posts.map(post => {
         return (
-          <div className="post" key={post.id}>
+          <div key={post.id}>
             <img src={post.cover} alt={post.title} />
             <h1>{post.title}</h1>
             <p>{post.body}</p>

@@ -19,11 +19,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-.post:hover{
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
 .post img{
   width: 100%;
 }
