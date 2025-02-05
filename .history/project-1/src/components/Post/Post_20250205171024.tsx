@@ -4,7 +4,7 @@ import './Post.styles.css';
 
 const Post = ({posts, nextPosts}: PostProps) => {
     return (
-        <div className="posts">
+        <div className="container">
           {posts.slice(0, nextPosts).map(post => (
             <PostCard
               key={post.id}

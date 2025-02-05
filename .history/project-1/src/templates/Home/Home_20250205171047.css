@@ -5,9 +5,10 @@
 }
 
 .Home {
-  min-height: 100vh;
-  background: #eee;
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Home__search {

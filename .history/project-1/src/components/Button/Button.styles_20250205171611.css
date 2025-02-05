@@ -5,8 +5,7 @@ button {
   border: none;
   padding: 15px 30px;
   cursor: pointer;
-  transition: ease-in-out 0.5s;
-  margin-top: 30px;
+  transition: ease-in-out 0.2s;
 }
 
 button:hover {

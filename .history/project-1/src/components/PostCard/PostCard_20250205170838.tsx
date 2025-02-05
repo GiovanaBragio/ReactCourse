@@ -3,9 +3,9 @@ import './PostCard.styles.css';
 
 const PostCard = ({ cover, title, body }: PostCardProps) => {
   return (
-    <div className="post">
+    <div className="post_container">
       <img src={cover} alt={title} />
-      <div className="post-content">
+      <div className="post">
         <h1>{title}</h1>
         <p>{body}</p>
       </div>

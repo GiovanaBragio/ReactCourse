@@ -6,7 +6,6 @@ button {
   padding: 15px 30px;
   cursor: pointer;
   transition: ease-in-out 0.5s;
-  margin-top: 30px;
 }
 
 button:hover {

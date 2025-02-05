@@ -1,0 +1,19 @@
+.post{
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #eee;
+    padding: 30px;
+  }
+  
+  .post:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+  
+  .post img{
+    width: 100%;
+  }
+  
+  .post h1{
+    font-size: 25px;
+  }

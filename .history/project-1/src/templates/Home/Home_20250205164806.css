@@ -3,11 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 .Home {
-  min-height: 100vh;
-  background: #eee;
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Home__posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 .Home__search {
