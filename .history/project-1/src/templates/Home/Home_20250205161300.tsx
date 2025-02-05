@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import './Home.css';
+import PostCard from '../../components/PostCard/PostCard';
 import { PostCardProps } from '../../components/PostCard/PostCard.interface';
 import Button from '../../components/Button/Button';
 import InputText from '../../components/InputText/InputText';
-import Post from '../../components/Post/Post';
 
 function Home() {
   const [posts, setPosts] = useState<PostCardProps[]>([]);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [nextPosts, setNextPosts] = useState(10);
   const [search, setSearch] = useState('');
-  const filterPosts = !!search ? posts.filter(post => post.title.toLowerCase().includes(search.toLowerCase())) : posts;
+  const filterPosts = posts;
 
   useEffect(() => {
     loadPosts();
@@ -38,22 +38,31 @@ function Home() {
     setNextPosts(newNextPosts);
   }
 
+  const handleSearch = () => {
+    setSearch('');
+  }
+
   return (
     <div className="Home">
-      <div className="Home__search">
-        <h1>Search Posts: {search}</h1>
-        <InputText
-          value={search}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)} />
+      <InputText
+        value={search}
+        onChange={(event) => setSearch(event.target.value)} />
+      <div className="Home__posts">
+        {posts.slice(0, nextPosts).map(post => (
+          <PostCard
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            body={post.body}
+            cover={post.cover} />
+        )
+        )}
       </div>
-      {filterPosts.length ? <Post posts={filterPosts} nextPosts={nextPosts} /> : <p>Não existem posts :(</p>}
-      {!search && (
-        <Button
-          text={'See more'}
-          onClick={seeMore}
-          disabled={isButtonDisabled}
-        />
-      )}
+      <Button
+        text={'See more'}
+        onClick={seeMore}
+        disabled={isButtonDisabled}
+      />
     </div>
   );
 }

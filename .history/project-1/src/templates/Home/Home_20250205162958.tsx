@@ -46,7 +46,7 @@ function Home() {
           value={search}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)} />
       </div>
-      {filterPosts.length ? <Post posts={filterPosts} nextPosts={nextPosts} /> : <p>Não existem posts :(</p>}
+      <Post posts={filterPosts} nextPosts={nextPosts} />
       {!search && (
         <Button
           text={'See more'}

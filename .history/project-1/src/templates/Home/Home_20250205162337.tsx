@@ -38,15 +38,21 @@ function Home() {
     setNextPosts(newNextPosts);
   }
 
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+    filterPosts.map((post: PostCardProps) => {
+      if (post.title.toLowerCase().includes(search.toLowerCase())) {
+        filterPosts.push(post);
+      } 
+    })
+  }
+
   return (
     <div className="Home">
-      <div className="Home__search">
-        <h1>Search Posts: {search}</h1>
-        <InputText
-          value={search}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)} />
-      </div>
-      {filterPosts.length ? <Post posts={filterPosts} nextPosts={nextPosts} /> : <p>Não existem posts :(</p>}
+      <InputText
+        value={search}
+        onChange={handleSearch} />
+      <Post posts={filterPosts} nextPosts={nextPosts} />
       {!search && (
         <Button
           text={'See more'}
