@@ -40,7 +40,7 @@ function Home() {
 
   return (
     <div className="Home">
-      <div className="search-container">
+      <div className="home-search">
         <h1>Search Posts: {search}</h1>
         <InputText
           value={search}
