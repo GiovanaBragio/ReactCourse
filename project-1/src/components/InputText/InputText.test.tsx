@@ -6,9 +6,9 @@ describe('InputText', () => {
   it('should have a value of searchValue', () => {
     render(<InputText onChange={() => { }} value={'testing'} />);
     const input = screen.getByPlaceholderText("Search") as HTMLInputElement;
-    
+
     expect(input.value).toBe('testing');
-    
+
   });
   it('should call handleChange function on each key pressed', () => {
     const fn = jest.fn();

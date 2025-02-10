@@ -10,7 +10,7 @@ function Home() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [nextPosts, setNextPosts] = useState(10);
   const [search, setSearch] = useState('');
-  const filterPosts = !!search ? posts.filter(post => post.title.toLowerCase().includes(search.toLowerCase())) : posts;
+  const filterPosts = search ? posts.filter(post => post.title.toLowerCase().includes(search.toLowerCase())) : posts;
 
   useEffect(() => {
     loadPosts();
