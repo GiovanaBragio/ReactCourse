@@ -22,6 +22,27 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-history/
+# Logs e histórico
+*.log
+*.history/
+.history/
+.history/*
+.history/**
+
+# Arquivos de cache do Git
+.git/
+
+# Logs e histórico
+*.log
+*.history/
+.history/
+.history/*
+.history/**
+
+# Configurações de editor
 .vscode/
-.editorconfig
+.editorconfig 
+.idea/
+*.swp
+*.swo
+*.swn
